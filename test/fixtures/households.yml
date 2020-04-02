@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  family: MyString
+  region: MyString
+
+two:
+  family: MyString
+  region: MyString
