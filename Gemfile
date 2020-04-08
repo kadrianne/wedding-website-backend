@@ -42,3 +42,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Postgres database
 gem 'pg'
+gem "jwt", "~> 2.2"
