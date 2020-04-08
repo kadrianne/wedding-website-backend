@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :addresses, only: [:index, :create]
   resources :households, only: [:index, :show]
   post 'admin-login', to: 'admins#login'
+  post 'guest-login', to: 'logins#login'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
