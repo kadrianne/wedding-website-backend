@@ -10,7 +10,7 @@ class AdminsController < ApplicationController
     end
 
     def login
-        @admin = Admin.find_by(username: params[:username])
+        @admin = Admin.find_by(username: params[:username].downcase)
 
         if !@admin
             render json: {message: 'Please enter a valid username.'}, status: :unauthorized

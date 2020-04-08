@@ -10,7 +10,7 @@ class LoginsController < ApplicationController
     end
 
     def login
-        @login = Login.find_by(login_name: params[:login_name])
+        @login = Login.find_by(login_name: params[:login_name].downcase)
 
         if !@login
             render json: {message: 'Please enter a valid login name.'}, status: :unauthorized
