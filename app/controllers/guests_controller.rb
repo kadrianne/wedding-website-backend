@@ -2,7 +2,7 @@ class GuestsController < ApplicationController
 
     def index
         @guests = Guest.all
-        render json: @guests, include: [:address => {except: [:created_at, :updated_at]}, :household => {except: [:created_at, :updated_at]}], except: [:created_at, :updated_at, :address_id, :household_id]
+        render json: @guests, include: [:household => {except: [:created_at, :updated_at]}], except: [:created_at, :updated_at, :address_id, :household_id]
     end
     
     def create
@@ -19,6 +19,6 @@ class GuestsController < ApplicationController
     private
 
     def guest_params
-        params.require(:guest).permit([:first_name,:last_name,:age,:email,:phone,:rsvp,:household_id,:address_id])
+        params.require(:guest).permit([:first_name,:last_name,:age,:email,:phone,:rsvp,:household_id])
     end
 end
