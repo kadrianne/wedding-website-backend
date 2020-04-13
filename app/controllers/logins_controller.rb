@@ -3,10 +3,11 @@ class LoginsController < ApplicationController
     def create
         @login = Login.create({
             login_name: params[:login_name],
-            password: params[:password]
+            password: params[:password],
+            household_id: params[:household_id]
         })
 
-        render json: {message: 'Login successfully created.'}, status: :created
+        render json: {message: 'Login successfully created.', login: @login}, status: :created
     end
 
     def login
@@ -23,7 +24,7 @@ class LoginsController < ApplicationController
                 }
                 secret_key = Rails.application.secret_key_base
                 token = JWT.encode(payload,secret_key)
-                render json: {message: 'User logged in.', login: @login}, status: :accepted
+                render json: {message: 'User logged in.', login: @login, token: token}, status: :accepted
             end
         end
     end
