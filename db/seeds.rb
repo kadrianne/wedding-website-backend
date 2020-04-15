@@ -13,5 +13,5 @@ Household.destroy_all
 
 sample_family = Household.create(family: 'Sample', region: 'Colorado')
 CO_address = Address.create(street1: '123 Main St', city: 'Denver', state: 'CO', zip: '80216', country: 'USA', household: sample_family)
-guest1 = Guest.create(first_name: 'Sally', last_name: 'Sample', age: 'Adult 12+', email: 'ssample@email.com', phone: '555-555-5555', household: sample_family)
+guest1 = Guest.create(first_name: 'Sally', last_name: 'Sample', age: 'Adult 12+', email: 'ssample@email.com', phone: '555-555-5555', household: sample_family, address: CO_address)
 sample_login = Login.create(login_name: 'sample', password: '123qwe', household: sample_family)
