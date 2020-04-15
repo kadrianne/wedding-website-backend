@@ -2,12 +2,12 @@ class GuestsController < ApplicationController
 
     def index
         @guests = Guest.all
-        render json: @guests, include: [:household => {except: [:created_at, :updated_at]}], except: [:created_at, :updated_at, :address_id, :household_id]
+        render json: @guests, include: [:household => {except: [:created_at, :updated_at]}, :address => {except: [:created_at, :updated_at]}], except: [:created_at, :updated_at, :household_id]
     end
 
     def show
         @guest = Guest.find(params[:id])
-        render json: @guest, include: [:household]
+        render json: @guest, include: [:household, :address]
     end
     
     def create
