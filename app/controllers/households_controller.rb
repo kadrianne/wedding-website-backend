@@ -11,11 +11,15 @@ class HouseholdsController < ApplicationController
     end
     
     def create
-        @household = Household.create(
+        @household = Household.new(
             family: params[:family],
             region: params[:region]
         )
 
-        render json: {message: 'Household successfully added!', household: @household}, status: :created
+        if @household.save
+            render json: {message: 'Household successfully added!', household: @household}, status: :created
+        else
+            render @household.errors.messages
+        end
     end
 end
