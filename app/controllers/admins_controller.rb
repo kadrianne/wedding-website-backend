@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController
+    before_action :authenticate, only: [:create]
 
     def create
         @admin = Admin.create({
@@ -23,7 +24,7 @@ class AdminsController < ApplicationController
                 }
                 secret_key = Rails.application.secret_key_base
                 token = JWT.encode(payload,secret_key)
-                render json: {message: 'User logged in.', admin: @admin}, status: :accepted
+                render json: {message: 'User logged in.', admin: @admin, token: token}, status: :accepted
             end
         end
     end

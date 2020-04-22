@@ -1,4 +1,5 @@
 class GuestsController < ApplicationController
+    before_action :authenticate
 
     def index
         @guests = Guest.all
