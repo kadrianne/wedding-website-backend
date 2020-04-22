@@ -19,7 +19,7 @@ This database is created on PostgreSQL to eventually be deployed to a live serve
 
 ## Authentication
 
-BCrypt is used for hashing login and admin passwords and JWT is used for authentication in order to encode/decode a login payload. 
+BCrypt is used for hashing login and admin passwords and JWT is used for authentication in order to encode/decode a payloads. Access to the API requires authentication for all actions with the exception of admin and guest login.
 
 ## Challenges
 
@@ -28,6 +28,4 @@ Setting up relationships to be able to access and show relationship via multiple
 ## Future Implementation
 
 - Deployment to production server
-- Authentication for Admin users
 - Storing additional guest information i.e. food allergies, travel information
-- Validation for login and admin creation
