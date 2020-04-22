@@ -1,4 +1,5 @@
 class LoginsController < ApplicationController
+    before_action :authenticate, only: [:create]
 
     def create
         @login = Login.create({
