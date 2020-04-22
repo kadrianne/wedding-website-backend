@@ -20,7 +20,7 @@ class HouseholdsController < ApplicationController
         if @household.save
             render json: {message: 'Household successfully added!', household: @household}, status: :created
         else
-            render @household.errors.messages
+            render json: @household.errors.messages
         end
     end
 end

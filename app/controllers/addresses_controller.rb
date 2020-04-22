@@ -25,7 +25,7 @@ class AddressesController < ApplicationController
         if @address.save
             render json: {message: 'Address created successfully.', address: @address}, status: :created
         else
-            render @address.errors.messages
+            render json: @address.errors.messages
         end
     end
 end

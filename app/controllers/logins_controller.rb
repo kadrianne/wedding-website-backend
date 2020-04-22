@@ -2,13 +2,17 @@ class LoginsController < ApplicationController
     before_action :authenticate, only: [:create]
 
     def create
-        @login = Login.create({
+        @login = Login.new({
             login_name: params[:login_name],
             password: params[:password],
             household_id: params[:household_id]
         })
 
-        render json: {message: 'Login successfully created.', login: @login}, status: :created
+        if @login.save
+            render json: {message: 'Login successfully created.', login: @login}, status: :created
+        else
+            render json: @login.errors.messages
+        end
     end
 
     def login
