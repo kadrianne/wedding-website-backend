@@ -17,7 +17,7 @@ class GuestsController < ApplicationController
         if @guest.save
             render json: {message: 'Guest successfully added.', guest: @guest}, status: :created
         else
-            render @guest.errors.messages
+            render json: @guest.errors.messages
         end
     end
 
@@ -27,7 +27,7 @@ class GuestsController < ApplicationController
         if @guest.update(guest_params)
             render json: {message: 'Guest successfully updated.', guest: @guest}, status: :ok
         else
-            render @guest.errors.messages
+            render json: @guest.errors.messages
         end
     end
 
@@ -37,7 +37,7 @@ class GuestsController < ApplicationController
         if @guest.destroy
             render json: {message: 'Guest successfully deleted.'}, status: :ok
         else
-            render @guest.errors.messages
+            render json: @guest.errors.messages
         end
     end
 

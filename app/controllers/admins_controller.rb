@@ -2,12 +2,16 @@ class AdminsController < ApplicationController
     before_action :authenticate, only: [:create]
 
     def create
-        @admin = Admin.create({
+        @admin = Admin.new({
             username: params[:username],
             password: params[:password]
         })
 
-        render json: @admin
+        if @admin.save
+            render json: {message: 'Admin successfully created.', admin: @admin}, status: :created
+        else
+            render json: @admin.errors.messages
+        end
     end
 
     def login
