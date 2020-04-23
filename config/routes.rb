@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :households, only: [:index, :show, :create]
   post 'admin-login', to: 'admins#login'
   post 'guest-login', to: 'logins#login'
-  post 'authenticate-login', to: 'application#authenticate_login'
+  post 'authenticate', to: 'application#authenticate'
+  post 'get-payload', to: 'logins#get_payload'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
