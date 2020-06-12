@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-    # before_action :authenticate, only: [:create]
+    before_action :authenticate, only: [:create]
 
     def create
         @admin = Admin.new({
