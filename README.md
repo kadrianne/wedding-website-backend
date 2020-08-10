@@ -13,8 +13,8 @@ Backend: Ruby v2.6.1, Rails API v6.0.2.2, PostgreSQL v12.2
 
 This database is created on PostgreSQL to eventually be deployed to a live server. 
 
-### Entity-Relationship Diagram
-![](media/wedding-website-erd.png)
+### Relational Schema Diagram
+![](media/wedding-website-schema-diagram.png)
 
 
 ## Authentication
@@ -23,7 +23,7 @@ BCrypt is used for hashing login and admin passwords and JWT is used for authent
 
 ## Challenges
 
-Setting up relationships to be able to access and show relationship via multiple models proved to be difficult without any visualization. Creating an ERD helped to lay out those relationships in an organized way.
+Setting up relationships to be able to access and show relationship via multiple models proved to be difficult without any visualization. Creating a relational schema diagram helped to lay out those relationships in an organized way.
 
 ## Future Implementation
 
